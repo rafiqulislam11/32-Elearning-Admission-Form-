@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admission Form - E-Learning & Earning Ltd.</title>
+  <title>Admission Form & Auto CV - E-Learning & Earning Ltd.</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,7 +29,7 @@
       padding: 0;
       font-family: 'Inter', Arial, Helvetica, sans-serif;
       color: #111827;
-      background-color: #e2e8f0;
+      background-color: #cbd5e1;
     }
 
     /* Fixed single-page A4 Canvas with strict height constraints */
@@ -154,12 +154,11 @@
     @media print {
       html, body {
         width: 210mm !important;
-        height: 297mm !important;
-        max-height: 297mm !important;
+        height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
-        overflow: hidden !important;
+        overflow: visible !important;
       }
 
       .no-print {
@@ -181,7 +180,7 @@
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
-        page-break-after: avoid !important;
+        page-break-after: always !important;
         page-break-inside: avoid !important;
         margin: 0 !important;
       }
@@ -233,99 +232,30 @@
         min-height: 110px;
         max-height: 110px;
       }
-
-      .no-print.w-full.max-w-\[210mm\] {
-        padding: 8px;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div {
-        align-items: stretch;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:last-child {
-        width: 100%;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:last-child > * {
-        flex: 1 1 auto;
-        justify-content: center;
-      }
     }
 
-    @media screen and (max-width: 520px) {
-      .a4-page {
-        padding: 10px 8px 14px;
-      }
-
-      .form-row > .form-field {
-        width: 100% !important;
-        flex: 1 1 100%;
-      }
-
-      .form-row.pl-12 {
-        padding-left: 0;
-      }
-
-      .field-label {
-        font-size: 10px;
-      }
-
-      .header-area {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .header-area > .flex-1 {
-        order: 3;
-        flex-basis: 100%;
-      }
-
-      .header-area > .w-\[104px\],
-      .header-area > .w-\[84px\] {
-        width: 76px;
-      }
-
-      .header-area > .w-\[84px\] label {
-        width: 76px;
-        height: 88px;
-      }
-
-      .header-area h2 {
-        font-size: 16px;
-      }
-
-      .header-area h3 {
-        font-size: 14px;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:first-child {
-        width: 100%;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:first-child > div:last-child {
-        min-width: 0;
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:last-child > * {
-        flex-basis: calc(50% - 4px);
-      }
-
-      .no-print.w-full.max-w-\[210mm\] > div > div:last-child label {
-        text-align: center;
-      }
-
-      .signature-two-inch-spacer {
-        height: 82px;
-        min-height: 82px;
-        max-height: 82px;
-      }
+    /* CV Section Styling */
+    .cv-section-title {
+      font-size: 11.8px;
+      font-weight: 800;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-left: 3.5px solid #007337;
+      padding-left: 8px;
+      margin: 8px 0 4px 0;
     }
+    .cv-table { width: 100%; border-collapse: collapse; font-size: 11.2px; margin-bottom: 4px; }
+    .cv-table td { padding: 2.8px 4px; vertical-align: top; }
+    .cv-lbl { width: 28%; font-weight: 700; color: #475569; }
+    .cv-cln { width: 2%; font-weight: 700; color: #475569; }
+    .cv-val { width: 70%; color: #0f172a; font-weight: 500; }
   </style>
 </head>
 <body class="selection:bg-[#007337] selection:text-white">
 
   <!-- Action Navbar (Hidden on print) -->
-  <header class="no-print w-full max-w-[210mm] mx-auto px-3 pt-3 pb-2">
+  <header class="no-print w-full max-w-[210mm] mx-auto px-3 pt-3 pb-2 sticky top-0 z-50">
     <div class="bg-white/95 backdrop-blur shadow-md border border-slate-300 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2.5">
       <div class="flex items-center gap-2.5">
         <div class="w-8 h-8 rounded-lg bg-[#007337] text-white font-black text-lg flex items-center justify-center shadow">
@@ -333,12 +263,11 @@
         </div>
         <div>
           <h1 class="text-xs font-extrabold text-gray-900 leading-tight">E-Learning & Earning Ltd.</h1>
-          <p class="text-[10px] text-gray-500">Official Admission Form &bull; WhatsApp +8801733564662</p>
+          <p class="text-[10px] text-gray-500">Admission Form &amp; Auto CV &bull; WhatsApp +8801733564662</p>
         </div>
       </div>
 
       <div class="flex items-center gap-2 flex-wrap">
-        <!-- Logo file picker helper -->
         <label for="custom-logo-input" class="px-2.5 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg transition-all flex items-center gap-1 cursor-pointer" title="Upload or choose logo2_2.png from your device">
           <i class="fa-regular fa-image text-emerald-700"></i> Change Logo
           <input type="file" id="custom-logo-input" accept="image/*" class="hidden" onchange="uploadCustomLogo(event)">
@@ -352,8 +281,12 @@
           <i class="fa-solid fa-rotate-left"></i> Reset
         </button>
 
+        <button type="button" onclick="downloadAutoCV()" class="px-3 py-1.5 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow transition-all flex items-center gap-1 active:scale-95" title="Download only the CV page as A4 PDF">
+          <i class="fa-solid fa-file-lines"></i> Download CV (PDF)
+        </button>
+
         <button type="button" onclick="window.print()" class="px-3 py-1.5 text-xs font-bold text-gray-800 bg-gray-200 hover:bg-gray-300 rounded-lg transition-all flex items-center gap-1 active:scale-95">
-          <i class="fa-solid fa-print"></i> Print A4
+          <i class="fa-solid fa-print"></i> Print Form
         </button>
 
         <!-- Submit to WhatsApp Button -->
@@ -364,61 +297,39 @@
     </div>
   </header>
 
-  <!-- Sheet Container -->
-  <div class="screen-wrapper w-full flex justify-center pb-8">
+  <!-- Sheet Containers Wrapper -->
+  <div class="screen-wrapper w-full flex flex-col items-center gap-6 pb-12">
+
+    <!-- ================= PAGE 1: ADMISSION FORM ================= -->
     <main id="admission-form-sheet" class="a4-page">
 
       <div class="w-full h-full flex flex-col justify-between">
         
-        <!-- Main Form Wrapper -->
         <div>
           <!-- Header Area -->
           <div class="header-area w-full flex items-start justify-between gap-2 pb-1 border-b border-gray-200">
             
-            <!-- Left Logo: Direct image load of logo2_2.png (or logo2.png) with pixel-accurate SVG fallback -->
+            <!-- Left Logo -->
             <div class="w-[104px] shrink-0 flex flex-col items-center justify-center min-w-0 pr-1 select-none">
-              <!-- 1. Real Image Element (Tries logo2_2.png then logo2.png) -->
               <img id="mainLogoImg" 
                    src="logo2_2.png" 
                    alt="E-Learning & Earning Ltd. Logo" 
                    class="w-full max-h-[96px] object-contain block"
                    onerror="handleLogoError(this)">
 
-              <!-- 2. Pixel-Perfect Inline Vector SVG Fallback (Matches exact geometry of logo2_2.png) -->
+              <!-- Fallback SVG Vector -->
               <svg id="logoSvgFallback" viewBox="0 0 450 360" class="w-full h-auto max-h-[96px] hidden" xmlns="http://www.w3.org/2000/svg">
-                <!-- 
-                  Geometry of logo2_2.png:
-                  - Top horizontal green arm: (130,15) to (305,57)
-                  - Left upper green spine: (130,15) to (172,142)
-                  - Middle green horizontal bar: (172,99) to (298,142)
-                  - Below middle bar: 
-                    * White square cutout in the lower-left: (130,142) to (208,220)
-                    * Green vertical post in the center-left: (208,142) to (248,220)
-                    * Open space on right of center post
-                  - Bottom broad green base: (130,220) to (335,266)
-                -->
                 <g fill="#10a249">
-                  <!-- Top full bar -->
                   <rect x="130" y="15" width="175" height="42" />
-                  <!-- Upper left spine -->
                   <rect x="130" y="57" width="42" height="85" />
-                  <!-- Middle bar -->
                   <rect x="172" y="99" width="126" height="43" />
-                  <!-- Center vertical column below middle bar -->
                   <rect x="208" y="142" width="39" height="78" />
-                  <!-- Bottom base bar -->
                   <rect x="130" y="220" width="205" height="46" />
                 </g>
-
-                <!-- Calligraphic Brand Typography: 'e - Learning & Earning Ltd.' in deep navy (#091e6b) -->
                 <text x="225" y="297" text-anchor="middle" font-family="'Times New Roman', Georgia, serif" font-weight="900" font-style="italic" font-size="39" fill="#091e6b" letter-spacing="-0.3">
                   <tspan font-family="'Brush Script MT', 'Times New Roman', cursive" font-size="44" font-weight="bold">e</tspan> - Learning &amp; Earning Ltd.
                 </text>
-
-                <!-- Thin Separator Underline -->
                 <line x1="42" y1="310" x2="408" y2="310" stroke="#111827" stroke-width="1.3" opacity="0.8" />
-
-                <!-- Cursive Tagline: 'Excellence in Learning' in emerald green (#159b48) -->
                 <text x="225" y="343" text-anchor="middle" font-family="'Alex Brush', 'Brush Script MT', cursive, serif" font-style="italic" font-size="37" fill="#159b48" letter-spacing="1">
                   Excellence in Learning
                 </text>
@@ -449,7 +360,7 @@
                 </div>
                 <div class="form-field flex-1 justify-end">
                   <span class="whitespace-nowrap font-extrabold text-[10.5px]">Date :</span>
-                  <input id="input-date" type="text" placeholder="DD / MM / YYYY" class="field-input max-w-[105px] text-center font-semibold text-xs">
+                  <input id="input-date" type="text" value="20 / 09 / 2026" class="field-input max-w-[105px] text-center font-semibold text-xs">
                 </div>
               </div>
             </div>
@@ -478,7 +389,7 @@
             &laquo; Personal Information &raquo;
           </div>
 
-          <!-- Fields: Personal Information -->
+          <!-- Fields: Personal Information (Populated with your details) -->
           <div class="w-full text-gray-900">
             
             <!-- Row 1: Candidate Name & Contact -->
@@ -486,11 +397,11 @@
               <div class="form-field flex-1">
                 <span class="field-label">Name of Candidate:</span>
                 <span class="text-[8.5px] text-gray-600 font-normal whitespace-nowrap ml-1">(Please use Capital Letter's)</span>
-                <input id="input-name" type="text" class="field-input uppercase font-bold">
+                <input id="input-name" type="text" value="RAFIQUL ISLAM" oninput="syncCV()" class="field-input uppercase font-bold">
               </div>
-              <div class="form-field w-48 shrink-0">
+              <div class="form-field w-64 shrink-0">
                 <span class="field-label">Contact :</span>
-                <input id="input-contact" type="text" class="field-input font-semibold">
+                <input id="input-contact" type="text" value="01310-824987, 01930-279175" oninput="syncCV()" class="field-input font-semibold">
               </div>
             </div>
 
@@ -498,11 +409,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Occupation :</span>
-                <input id="input-occupation" type="text" class="field-input">
+                <input id="input-occupation" type="text" value="Graphic Designer & Freelancer" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">Designation :</span>
-                <input id="input-designation" type="text" class="field-input">
+                <input id="input-designation" type="text" value="CEO" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -510,11 +421,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Father's Name:</span>
-                <input id="input-father" type="text" class="field-input">
+                <input id="input-father" type="text" value="MD. ABDUL MALEK MIA" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field w-36 shrink-0">
                 <span class="field-label">Occupation :</span>
-                <input id="input-f-occ" type="text" class="field-input">
+                <input id="input-f-occ" type="text" value="Farmer" class="field-input">
               </div>
               <div class="form-field w-36 shrink-0">
                 <span class="field-label">Contact :</span>
@@ -526,11 +437,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Mother's Name:</span>
-                <input id="input-mother" type="text" class="field-input">
+                <input id="input-mother" type="text" value="MST. ROKEYA BEGUM" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field w-48 shrink-0">
                 <span class="field-label">Occupation :</span>
-                <input id="input-m-occ" type="text" class="field-input">
+                <input id="input-m-occ" type="text" value="Housewife" class="field-input">
               </div>
             </div>
 
@@ -538,16 +449,16 @@
             <div class="form-row">
               <div class="form-field w-44 shrink-0">
                 <span class="field-label">Date Of Birth :</span>
-                <input id="input-dob" type="text" placeholder="DD / MM / YYYY" class="field-input text-center">
+                <input id="input-dob" type="text" value="15 / 02 / 1994" oninput="syncCV()" class="field-input text-center">
               </div>
-              <div class="form-field w-32 shrink-0">
+              <div class="form-field w-40 shrink-0">
                 <span class="field-label">Blood Group :</span>
-                <input id="input-blood" type="text" class="field-input text-center font-semibold">
+                <input id="input-blood" type="text" value="O- (Negetive)" oninput="syncCV()" class="field-input text-center font-semibold">
               </div>
               <div class="form-field flex-1 justify-end">
                 <span class="field-label mr-2">Gender :</span>
                 <label class="inline-flex items-center cursor-pointer mr-3.5">
-                  <input type="checkbox" id="gender-male" onclick="toggleGender('Male')" class="checkbox-custom">
+                  <input type="checkbox" id="gender-male" checked onclick="toggleGender('Male')" class="checkbox-custom">
                   <span class="text-[10px] font-semibold text-gray-800">Male</span>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
@@ -561,7 +472,7 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Name of Institute :</span>
-                <input id="input-institute" type="text" class="field-input">
+                <input id="input-institute" type="text" value="IT Computer & Training Academy" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -569,11 +480,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">NID/Passport No:</span>
-                <input id="input-nid" type="text" class="field-input">
+                <input id="input-nid" type="text" value="733 871 5134" oninput="syncCV()" class="field-input font-semibold">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">E-mail :</span>
-                <input id="input-email" type="email" class="field-input font-medium">
+                <input id="input-email" type="email" value="rafiqulislam.globalwork@gmail.com" oninput="syncCV()" class="field-input font-medium">
               </div>
             </div>
 
@@ -581,11 +492,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Present Address: Villa/Street :</span>
-                <input id="input-pre-addr" type="text" class="field-input">
+                <input id="input-pre-addr" type="text" value="Jamirdia" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field w-44 shrink-0">
                 <span class="field-label">Post :</span>
-                <input id="input-pre-post" type="text" class="field-input">
+                <input id="input-pre-post" type="text" value="Hobirbari" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -593,11 +504,11 @@
             <div class="form-row pl-12">
               <div class="form-field flex-1">
                 <span class="field-label">Thana :</span>
-                <input id="input-pre-thana" type="text" class="field-input">
+                <input id="input-pre-thana" type="text" value="Bhaluka - 2240" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">District :</span>
-                <input id="input-pre-dist" type="text" class="field-input">
+                <input id="input-pre-dist" type="text" value="Mymensingh" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -605,11 +516,11 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Permanent Address: Villa/Street :</span>
-                <input id="input-per-addr" type="text" class="field-input">
+                <input id="input-per-addr" type="text" value="Holding: 08, Lakhi Kura" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field w-44 shrink-0">
                 <span class="field-label">Post :</span>
-                <input id="input-per-post" type="text" class="field-input">
+                <input id="input-per-post" type="text" value="Majra Kura - 2260" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -617,11 +528,11 @@
             <div class="form-row pl-12">
               <div class="form-field flex-1">
                 <span class="field-label">Thana :</span>
-                <input id="input-per-thana" type="text" class="field-input">
+                <input id="input-per-thana" type="text" value="Haluaghat" oninput="syncCV()" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">District :</span>
-                <input id="input-per-dist" type="text" class="field-input">
+                <input id="input-per-dist" type="text" value="Mymensingh" oninput="syncCV()" class="field-input">
               </div>
             </div>
 
@@ -657,15 +568,15 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">Course Name :</span>
-                <input id="input-course" type="text" class="field-input font-bold text-gray-900">
+                <input id="input-course" type="text" value="Graphics Design" oninput="syncCV()" class="field-input font-bold text-gray-900">
               </div>
               <div class="form-field w-36 shrink-0">
                 <span class="field-label">Duration :</span>
-                <input id="input-duration" type="text" class="field-input font-medium">
+                <input id="input-duration" type="text" value="03th Months" oninput="syncCV()" class="field-input font-medium">
               </div>
               <div class="form-field w-36 shrink-0">
                 <span class="field-label">Batch No :</span>
-                <input id="input-batch" type="text" class="field-input font-medium">
+                <input id="input-batch" type="text" value="GD-01" class="field-input font-medium">
               </div>
             </div>
 
@@ -673,32 +584,32 @@
             <div class="form-row">
               <div class="form-field w-32 shrink-0">
                 <span class="field-label">Date :</span>
-                <input id="input-adm-date" type="text" class="field-input">
+                <input id="input-adm-date" type="text" value="20 / 09 / 2026" class="field-input">
               </div>
               <div class="form-field w-24 shrink-0">
                 <span class="field-label">Time :</span>
-                <input id="input-adm-time" type="text" class="field-input">
+                <input id="input-adm-time" type="text" value="10:00 AM" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">Course Fees :</span>
-                <input id="input-fees" type="text" class="field-input font-bold text-[#007337]">
+                <input id="input-fees" type="text" value="5,000/-" class="field-input font-bold text-[#007337]">
               </div>
               
               <div class="form-field shrink-0 ml-1 flex items-center gap-2.5">
                 <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" id="item-book" class="checkbox-custom rounded">
+                  <input type="checkbox" id="item-book" checked class="checkbox-custom rounded">
                   <span class="text-[9.8px] font-semibold text-gray-800">Book</span>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" id="item-pen" class="checkbox-custom rounded">
+                  <input type="checkbox" id="item-pen" checked class="checkbox-custom rounded">
                   <span class="text-[9.8px] font-semibold text-gray-800">Pen</span>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" id="item-khata" class="checkbox-custom rounded">
+                  <input type="checkbox" id="item-khata" checked class="checkbox-custom rounded">
                   <span class="text-[9.8px] font-semibold text-gray-800">Khata</span>
                 </label>
                 <label class="inline-flex items-center cursor-pointer">
-                  <input type="checkbox" id="item-bag" class="checkbox-custom rounded">
+                  <input type="checkbox" id="item-bag" checked class="checkbox-custom rounded">
                   <span class="text-[9.8px] font-semibold text-gray-800">Bag</span>
                 </label>
               </div>
@@ -708,15 +619,15 @@
             <div class="form-row">
               <div class="form-field flex-1">
                 <span class="field-label">1st payment Date :</span>
-                <input id="input-pay1-date" type="text" class="field-input">
+                <input id="input-pay1-date" type="text" value="20 / 09 / 2026" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">Money Recipt No :</span>
-                <input id="input-pay1-rcpt" type="text" class="field-input">
+                <input id="input-pay1-rcpt" type="text" value="MR-5001" class="field-input">
               </div>
               <div class="form-field w-36 shrink-0">
                 <span class="field-label">Amount :</span>
-                <input id="input-pay1-amt" type="text" class="field-input font-bold">
+                <input id="input-pay1-amt" type="text" value="5,000/-" class="field-input font-bold">
               </div>
             </div>
 
@@ -747,7 +658,7 @@
             <div class="form-row" style="margin-bottom: 0;">
               <div class="form-field flex-1">
                 <span class="field-label">Branch :</span>
-                <input id="input-branch" type="text" class="field-input">
+                <input id="input-branch" type="text" value="Dhaka Main" class="field-input">
               </div>
               <div class="form-field flex-1">
                 <span class="field-label">Coupon :</span>
@@ -784,16 +695,161 @@
 
       </div>
     </main>
+
+    <!-- Visual Separator for Screen -->
+    <div class="no-print w-full max-w-[210mm] flex items-center justify-between bg-slate-800 text-white px-4 py-2 rounded-lg shadow">
+      <span class="text-xs font-bold flex items-center gap-2">
+        <i class="fa-solid fa-wand-magic-sparkles text-emerald-400"></i>
+        অটো-জেনারেটেড প্রফেশনাল CV (Curriculum Vitae) &bull; ফর্মের তথ্যে লাইভ আপডেট হচ্ছে
+      </span>
+      <button onclick="downloadAutoCV()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-3 py-1 rounded transition-all">
+        <i class="fa-solid fa-download mr-1"></i> Download CV (A4 PDF)
+      </button>
+    </div>
+
+    <!-- ================= PAGE 2: AUTO-GENERATED CV ================= -->
+    <section id="auto-cv-sheet" class="a4-page">
+      <div class="w-full h-full flex flex-col justify-between" style="padding: 6mm 4mm 4mm 4mm;">
+        <div>
+          <!-- CV Header -->
+          <div class="flex justify-between items-center border-b-2 border-[#007337] pb-3 mb-3">
+            <div>
+              <h1 id="cv-name" class="text-2xl font-black text-slate-900 uppercase tracking-tight">RAFIQUL ISLAM</h1>
+              <div id="cv-title" class="text-xs font-bold text-[#007337] uppercase tracking-wide">Professional Graphic Designer &amp; Digital Creator</div>
+              <div class="text-[11px] text-slate-700 mt-1.5 leading-snug">
+                <div><strong>Mobile:</strong> <span id="cv-phone">01310-824987, 01930-279175</span></div>
+                <div><strong>Email:</strong> <span id="cv-email">rafiqulislam.globalwork@gmail.com</span></div>
+              </div>
+            </div>
+            <div class="w-20 h-24 border border-slate-300 rounded overflow-hidden bg-slate-50 flex items-center justify-center relative shadow-sm">
+              <img id="cv-photo-preview" class="w-full h-full object-cover hidden" alt="Candidate Photo">
+              <span id="cv-photo-placeholder" class="text-[10px] font-bold text-slate-400">PHOTO</span>
+            </div>
+          </div>
+
+          <!-- Career Objective -->
+          <div class="cv-section-title">Career Objective</div>
+          <p class="text-[11px] text-slate-700 leading-relaxed mb-2 text-justify">
+            Passionate and detail-oriented Graphic Designer with extensive experience in brand identity, visual design, and photo manipulation. Seeking to contribute innovative visual solutions to dynamic teams while expanding professional expertise.
+          </p>
+
+          <!-- Professional Training (Auto-Synced from Admission Form) -->
+          <div class="cv-section-title">Professional Training &amp; Courses</div>
+          <table class="cv-table">
+            <tr>
+              <td class="cv-lbl">Course Name</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val"><strong id="cv-course">Graphics Design</strong></td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Duration</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-duration">03th Months</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Training Institution</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val">E-Learning &amp; Earning Ltd.</td>
+            </tr>
+          </table>
+
+          <!-- Skills & Tools -->
+          <div class="cv-section-title">Core Skills &amp; Competencies</div>
+          <div class="flex flex-wrap gap-1.5 my-2">
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Graphic Design</span>
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Logo &amp; Brand Identity</span>
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Photo Manipulation</span>
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Social Media Creative Post</span>
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Banner &amp; Poster Layout</span>
+            <span class="bg-slate-100 border border-slate-300 text-slate-800 text-[10.5px] font-semibold px-2 py-0.5 rounded">Digital Media Strategy</span>
+          </div>
+
+          <!-- Personal Information -->
+          <div class="cv-section-title">Personal Profile</div>
+          <table class="cv-table">
+            <tr>
+              <td class="cv-lbl">Father's Name</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-father">MD. ABDUL MALEK MIA</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Mother's Name</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-mother">MST. ROKEYA BEGUM</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Date of Birth</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-dob">15 / 02 / 1994</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Gender</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-gender">Male</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Blood Group</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val"><strong id="cv-blood">O- (Negetive)</strong></td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">National ID (NID)</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val"><strong id="cv-nid">733 871 5134</strong></td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Nationality</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val">Bangladeshi</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Marital Status</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val">Married</td>
+            </tr>
+          </table>
+
+          <!-- Addresses -->
+          <div class="cv-section-title">Address Details</div>
+          <table class="cv-table">
+            <tr>
+              <td class="cv-lbl">Present Address</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-present-addr">Jamirdia, Hobirbari, Bhaluka - 2240, Mymensingh</td>
+            </tr>
+            <tr>
+              <td class="cv-lbl">Permanent Address</td>
+              <td class="cv-cln">:</td>
+              <td class="cv-val" id="cv-perm-addr">Holding: 08, Lakhi Kura, Majra Kura - 2260, Haluaghat, Mymensingh</td>
+            </tr>
+          </table>
+
+          <!-- Declaration -->
+          <div class="cv-section-title">Declaration</div>
+          <p class="text-[10.5px] text-slate-600 leading-snug text-justify my-1">
+            I hereby certify that all information stated in this curriculum vitae is authentic, accurate, and complete to the best of my knowledge.
+          </p>
+        </div>
+
+        <!-- Signature Block -->
+        <div class="w-full flex justify-end pb-3">
+          <div class="w-48 text-center border-t border-slate-700 pt-1">
+            <span class="text-xs font-bold text-slate-900" id="cv-sig-name">RAFIQUL ISLAM</span>
+            <p class="text-[10px] text-slate-500 font-medium">Applicant Signature</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- JavaScript Functions -->
+  <!-- JavaScript Engine -->
   <script>
     /* Robust Logo Handling: logo2_2.png -> logo2.png -> SVG Vector fallback */
     function handleLogoError(imgElement) {
       if (imgElement.src.includes('logo2_2.png')) {
         imgElement.src = 'logo2.png';
       } else {
-        // Hide img and reveal the SVG vector representation
         imgElement.style.display = 'none';
         const svgFallback = document.getElementById('logoSvgFallback');
         if (svgFallback) {
@@ -822,7 +878,7 @@
       }
     }
 
-    /* Candidate Photo Preview */
+    /* Candidate Photo Preview & Live Sync to CV */
     function previewCandidatePhoto(event) {
       const file = event.target.files[0];
       if (file) {
@@ -836,6 +892,13 @@
           placeholder.classList.add('hidden');
           removeBtn.classList.remove('hidden');
           removeBtn.classList.add('flex');
+
+          // Mirror into CV Photo
+          const cvImg = document.getElementById('cv-photo-preview');
+          const cvPlaceholder = document.getElementById('cv-photo-placeholder');
+          cvImg.src = e.target.result;
+          cvImg.classList.remove('hidden');
+          cvPlaceholder.classList.add('hidden');
         };
         reader.readAsDataURL(file);
       }
@@ -858,6 +921,13 @@
       removeBtn.classList.add('hidden');
       removeBtn.classList.remove('flex');
       fileInput.value = '';
+
+      // Reset CV Photo
+      const cvImg = document.getElementById('cv-photo-preview');
+      const cvPlaceholder = document.getElementById('cv-photo-placeholder');
+      cvImg.src = '';
+      cvImg.classList.add('hidden');
+      cvPlaceholder.classList.remove('hidden');
     }
 
     /* Exclusive Gender Selection */
@@ -869,45 +939,93 @@
       } else if (selected === 'Female' && femaleCheck.checked) {
         maleCheck.checked = false;
       }
+      syncCV();
     }
 
-    /* Fill Form with Demo Content */
+    /* Live Synchronize Form Input with CV */
+    function syncCV() {
+      const name = document.getElementById('input-name').value.trim() || 'RAFIQUL ISLAM';
+      const contact = document.getElementById('input-contact').value.trim() || 'N/A';
+      const email = document.getElementById('input-email').value.trim() || 'N/A';
+      const father = document.getElementById('input-father').value.trim() || 'N/A';
+      const mother = document.getElementById('input-mother').value.trim() || 'N/A';
+      const dob = document.getElementById('input-dob').value.trim() || 'N/A';
+      const blood = document.getElementById('input-blood').value.trim() || 'N/A';
+      const nid = document.getElementById('input-nid').value.trim() || 'N/A';
+      const course = document.getElementById('input-course').value.trim() || 'Graphics Design';
+      const duration = document.getElementById('input-duration').value.trim() || '03th Months';
+
+      // Addresses
+      const pStreet = document.getElementById('input-pre-addr').value.trim();
+      const pPost = document.getElementById('input-pre-post').value.trim();
+      const pThana = document.getElementById('input-pre-thana').value.trim();
+      const pDist = document.getElementById('input-pre-dist').value.trim();
+      const presentCombined = [pStreet, pPost, pThana, pDist].filter(Boolean).join(', ');
+
+      const permStreet = document.getElementById('input-per-addr').value.trim();
+      const permPost = document.getElementById('input-per-post').value.trim();
+      const permThana = document.getElementById('input-per-thana').value.trim();
+      const permDist = document.getElementById('input-per-dist').value.trim();
+      const permCombined = [permStreet, permPost, permThana, permDist].filter(Boolean).join(', ');
+
+      const isMale = document.getElementById('gender-male').checked;
+      const isFemale = document.getElementById('gender-female').checked;
+      const gender = isMale ? 'Male' : (isFemale ? 'Female' : 'N/A');
+
+      // Update CV Nodes
+      document.getElementById('cv-name').innerText = name;
+      document.getElementById('cv-sig-name').innerText = name;
+      document.getElementById('cv-phone').innerText = contact;
+      document.getElementById('cv-email').innerText = email;
+      document.getElementById('cv-father').innerText = father;
+      document.getElementById('cv-mother').innerText = mother;
+      document.getElementById('cv-dob').innerText = dob;
+      document.getElementById('cv-blood').innerText = blood;
+      document.getElementById('cv-nid').innerText = nid;
+      document.getElementById('cv-gender').innerText = gender;
+      document.getElementById('cv-course').innerText = course;
+      document.getElementById('cv-duration').innerText = duration;
+      document.getElementById('cv-present-addr').innerText = presentCombined;
+      document.getElementById('cv-perm-addr').innerText = permCombined;
+    }
+
+    /* Fill Form with Your Exact Details (Demo Trigger) */
     function fillSampleData() {
       document.getElementById('input-sl').value = '26732';
       document.getElementById('input-date').value = '20 / 09 / 2026';
-      document.getElementById('input-name').value = 'MOHAMMAD RAHMAN';
-      document.getElementById('input-contact').value = '+880 1712 345678';
-      document.getElementById('input-occupation').value = 'Full Stack Trainee';
-      document.getElementById('input-designation').value = 'Student';
-      document.getElementById('input-father').value = 'Abdul Rahman';
-      document.getElementById('input-f-occ').value = 'Businessman';
-      document.getElementById('input-f-contact').value = '+880 1819 001122';
-      document.getElementById('input-mother').value = 'Rokeya Begum';
-      document.getElementById('input-m-occ').value = 'Homemaker';
-      document.getElementById('input-dob').value = '14 / 08 / 2002';
-      document.getElementById('input-blood').value = 'B+';
+      document.getElementById('input-name').value = 'RAFIQUL ISLAM';
+      document.getElementById('input-contact').value = '01310-824987, 01930-279175';
+      document.getElementById('input-occupation').value = 'Graphic Designer & Freelancer';
+      document.getElementById('input-designation').value = 'CEO';
+      document.getElementById('input-father').value = 'MD. ABDUL MALEK MIA';
+      document.getElementById('input-f-occ').value = 'Farmer';
+      document.getElementById('input-f-contact').value = '';
+      document.getElementById('input-mother').value = 'MST. ROKEYA BEGUM';
+      document.getElementById('input-m-occ').value = 'Housewife';
+      document.getElementById('input-dob').value = '15 / 02 / 1994';
+      document.getElementById('input-blood').value = 'O- (Negetive)';
       document.getElementById('gender-male').checked = true;
       document.getElementById('gender-female').checked = false;
-      document.getElementById('input-institute').value = 'Dhaka Polytechnic Institute';
-      document.getElementById('input-nid').value = '19982691234567890';
-      document.getElementById('input-email').value = 'rahman.dev@gmail.com';
-      document.getElementById('input-pre-addr').value = 'House 14, Road 5, Block B';
-      document.getElementById('input-pre-post').value = 'Kallyanpur-1207';
-      document.getElementById('input-pre-thana').value = 'Mirpur';
-      document.getElementById('input-pre-dist').value = 'Dhaka';
-      document.getElementById('input-per-addr').value = 'Village: Charpara, Post: Sonapur';
-      document.getElementById('input-per-post').value = 'Sonapur-3800';
-      document.getElementById('input-per-thana').value = 'Begumganj';
-      document.getElementById('input-per-dist').value = 'Noakhali';
-      document.getElementById('input-alt-contact').value = 'Brother: +880 1911 223344';
+      document.getElementById('input-institute').value = 'IT Computer & Training Academy';
+      document.getElementById('input-nid').value = '733 871 5134';
+      document.getElementById('input-email').value = 'rafiqulislam.globalwork@gmail.com';
+      document.getElementById('input-pre-addr').value = 'Jamirdia';
+      document.getElementById('input-pre-post').value = 'Hobirbari';
+      document.getElementById('input-pre-thana').value = 'Bhaluka - 2240';
+      document.getElementById('input-pre-dist').value = 'Mymensingh';
+      document.getElementById('input-per-addr').value = 'Holding: 08, Lakhi Kura';
+      document.getElementById('input-per-post').value = 'Majra Kura - 2260';
+      document.getElementById('input-per-thana').value = 'Haluaghat';
+      document.getElementById('input-per-dist').value = 'Mymensingh';
+      document.getElementById('input-alt-contact').value = '';
 
-      // Office Section Demo Data
-      document.getElementById('input-course').value = 'Full-Stack Web & AI Application Development';
-      document.getElementById('input-duration').value = '6 Months';
-      document.getElementById('input-batch').value = 'WD-84';
+      // Office Section Data
+      document.getElementById('input-course').value = 'Graphics Design';
+      document.getElementById('input-duration').value = '03th Months';
+      document.getElementById('input-batch').value = 'GD-01';
       document.getElementById('input-adm-date').value = '20 / 09 / 2026';
-      document.getElementById('input-adm-time').value = '10:30 AM';
-      document.getElementById('input-fees').value = '15,000 BDT';
+      document.getElementById('input-adm-time').value = '10:00 AM';
+      document.getElementById('input-fees').value = '5,000/-';
       
       document.getElementById('item-book').checked = true;
       document.getElementById('item-pen').checked = true;
@@ -915,15 +1033,17 @@
       document.getElementById('item-bag').checked = true;
 
       document.getElementById('input-pay1-date').value = '20 / 09 / 2026';
-      document.getElementById('input-pay1-rcpt').value = 'MR-9042';
-      document.getElementById('input-pay1-amt').value = '8,000 BDT';
+      document.getElementById('input-pay1-rcpt').value = 'MR-5001';
+      document.getElementById('input-pay1-amt').value = '5,000/-';
 
-      document.getElementById('input-pay2-date').value = '20 / 10 / 2026';
-      document.getElementById('input-pay2-rcpt').value = 'MR-9210';
-      document.getElementById('input-pay2-amt').value = '7,000 BDT';
+      document.getElementById('input-pay2-date').value = '';
+      document.getElementById('input-pay2-rcpt').value = '';
+      document.getElementById('input-pay2-amt').value = '';
 
-      document.getElementById('input-branch').value = 'Mirpur Main Branch';
-      document.getElementById('input-coupon').value = 'LEARN2026';
+      document.getElementById('input-branch').value = 'Dhaka Main';
+      document.getElementById('input-coupon').value = '';
+
+      syncCV();
     }
 
     /* Reset All Inputs */
@@ -941,63 +1061,74 @@
       checkboxes.forEach(cb => cb.checked = false);
 
       removePhoto();
+      syncCV();
     }
 
-    /* Submit Form Data to WhatsApp (+8801733564662) & Save A4 PDF */
+    /* Download Auto-Generated CV as Single Page A4 PDF */
+    function downloadAutoCV() {
+      syncCV();
+      const element = document.getElementById('auto-cv-sheet');
+      const name = document.getElementById('input-name').value.trim() || 'Candidate';
+      const fileName = `CV_${name.replace(/\s+/g, '_')}.pdf`;
+
+      const opt = {
+        margin:       [4, 6, 4, 6],
+        filename:     fileName,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    /* Submit Form Data to WhatsApp (+8801733564662) & Save Form PDF */
     async function submitToWhatsApp() {
+      syncCV();
       const candidateName = document.getElementById('input-name').value.trim();
       const candidateContact = document.getElementById('input-contact').value.trim();
       const email = document.getElementById('input-email').value.trim();
+      const nid = document.getElementById('input-nid').value.trim();
+      const blood = document.getElementById('input-blood').value.trim();
 
-      // Quick validation
       if (!candidateName) {
         document.getElementById('input-name').focus();
-        document.getElementById('input-name').classList.add('bg-red-50');
-        setTimeout(() => document.getElementById('input-name').classList.remove('bg-red-50'), 2000);
         return;
       }
       if (!candidateContact) {
         document.getElementById('input-contact').focus();
-        document.getElementById('input-contact').classList.add('bg-red-50');
-        setTimeout(() => document.getElementById('input-contact').classList.remove('bg-red-50'), 2000);
         return;
       }
 
       const slNo = document.getElementById('input-sl').value.trim() || '26732';
       const formDate = document.getElementById('input-date').value.trim() || 'N/A';
-      const institute = document.getElementById('input-institute').value.trim() || 'N/A';
-      const nid = document.getElementById('input-nid').value.trim() || 'N/A';
       const courseName = document.getElementById('input-course').value.trim() || 'N/A';
-      const batchNo = document.getElementById('input-batch').value.trim() || 'N/A';
+      const duration = document.getElementById('input-duration').value.trim() || 'N/A';
       const courseFees = document.getElementById('input-fees').value.trim() || 'N/A';
       const pay1Amount = document.getElementById('input-pay1-amt').value.trim() || 'N/A';
-      const branch = document.getElementById('input-branch').value.trim() || 'N/A';
+      const presentAddr = `Jamirdia, Hobirbari, Bhaluka - 2240, Mymensingh`;
 
-      // Format WhatsApp Message with highlighted Name, Mobile, and Email
       let message = `*E-Learning & Earning Ltd. - NEW ADMISSION*\n`;
       message += `━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       message += `👤 *Candidate Name:* ${candidateName}\n`;
       message += `📱 *Mobile Number:* ${candidateContact}\n`;
-      message += `📧 *Gmail / Email:* ${email || 'Not Provided'}\n`;
+      message += `📧 *Gmail / Email:* ${email}\n`;
+      message += `🆔 *NID No:* ${nid}\n`;
+      message += `🩸 *Blood Group:* ${blood}\n`;
+      message += `🏠 *Present Address:* ${presentAddr}\n`;
       message += `━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
       message += `📋 *SL No:* ${slNo} | *Date:* ${formDate}\n`;
-      message += `🎓 *Institute:* ${institute}\n`;
-      message += `🆔 *NID/Passport:* ${nid}\n\n`;
-      message += `📚 *Course Name:* ${courseName}\n`;
-      message += `🏷️ *Batch No:* ${batchNo}\n`;
+      message += `📚 *Course Name:* ${courseName} (${duration})\n`;
       message += `💰 *Course Fees:* ${courseFees}\n`;
       message += `💳 *Paid Amount:* ${pay1Amount}\n`;
-      message += `🏢 *Branch:* ${branch}\n`;
       message += `━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-      message += `_Admission form submitted successfully._`;
+      message += `_Admission form & Auto CV submitted successfully._`;
 
       const encodedMsg = encodeURIComponent(message);
       const whatsappUrl = `https://wa.me/8801733564662?text=${encodedMsg}`;
 
-      // Open WhatsApp chat directly in a new tab
       window.open(whatsappUrl, '_blank');
 
-      // Generate & Download the exact Single-Page A4 PDF
+      // Auto Download Admission Form PDF
       const element = document.getElementById('admission-form-sheet');
       const fileName = `Admission_${candidateName.replace(/\s+/g, '_')}_${slNo}.pdf`;
       const opt = {
@@ -1012,9 +1143,11 @@
         await html2pdf().set(opt).from(element).save();
       } catch (err) {
         console.warn("Auto-download triggered print dialog fallback", err);
-        window.print();
       }
     }
+
+    // Initialize CV sync on load
+    document.addEventListener('DOMContentLoaded', syncCV);
   </script>
 </body>
 </html>
