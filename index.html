@@ -194,8 +194,130 @@
 
     @media screen and (max-width: 850px) {
       .screen-wrapper {
-        overflow-x: auto;
-        padding: 10px 0;
+        overflow-x: visible;
+        padding: 6px 8px 24px;
+      }
+
+      .a4-page {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        margin: 0;
+        padding: 12px 12px 16px;
+        overflow: visible;
+      }
+
+      .form-row {
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 2px 0;
+      }
+
+      .form-field {
+        max-width: 100%;
+      }
+
+      .field-input {
+        min-width: 40px;
+      }
+
+      .office-one-inch-spacer {
+        height: 56px;
+        min-height: 56px;
+        max-height: 56px;
+      }
+
+      .signature-two-inch-spacer {
+        height: 110px;
+        min-height: 110px;
+        max-height: 110px;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] {
+        padding: 8px;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div {
+        align-items: stretch;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:last-child {
+        width: 100%;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:last-child > * {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 520px) {
+      .a4-page {
+        padding: 10px 8px 14px;
+      }
+
+      .form-row > .form-field {
+        width: 100% !important;
+        flex: 1 1 100%;
+      }
+
+      .form-row.pl-12 {
+        padding-left: 0;
+      }
+
+      .field-label {
+        font-size: 10px;
+      }
+
+      .header-area {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .header-area > .flex-1 {
+        order: 3;
+        flex-basis: 100%;
+      }
+
+      .header-area > .w-\[104px\],
+      .header-area > .w-\[84px\] {
+        width: 76px;
+      }
+
+      .header-area > .w-\[84px\] label {
+        width: 76px;
+        height: 88px;
+      }
+
+      .header-area h2 {
+        font-size: 16px;
+      }
+
+      .header-area h3 {
+        font-size: 14px;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:first-child {
+        width: 100%;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:first-child > div:last-child {
+        min-width: 0;
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:last-child > * {
+        flex-basis: calc(50% - 4px);
+      }
+
+      .no-print.w-full.max-w-\[210mm\] > div > div:last-child label {
+        text-align: center;
+      }
+
+      .signature-two-inch-spacer {
+        height: 82px;
+        min-height: 82px;
+        max-height: 82px;
       }
     }
   </style>
@@ -251,7 +373,7 @@
         <!-- Main Form Wrapper -->
         <div>
           <!-- Header Area -->
-          <div class="w-full flex items-start justify-between gap-2 pb-1 border-b border-gray-200">
+          <div class="header-area w-full flex items-start justify-between gap-2 pb-1 border-b border-gray-200">
             
             <!-- Left Logo: Direct image load of logo2_2.png (or logo2.png) with pixel-accurate SVG fallback -->
             <div class="w-[104px] shrink-0 flex flex-col items-center justify-center min-w-0 pr-1 select-none">
