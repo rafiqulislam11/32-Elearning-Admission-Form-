@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Learning & Earning Ltd. - Official Admission Form</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Fonts: Inter & Alex Brush for branding -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#007337',
+              dark: '#005929',
+              light: '#10a249',
+              navy: '#091e6b',
+              tint: '#f0fdf4'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
+            script: ['"Alex Brush"', 'cursive']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Strict sizing and print color preservation */
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      color: #111827;
+      background-color: #e5e7eb;
+    }
+
+    /* Fixed single-page A4 Canvas with strict height constraints */
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      background: #ffffff;
+      margin: 0 auto;
+      padding: 3.5mm 12mm 3mm 12mm;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Form Rows with expanded line spacing */
+    .form-row {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      min-width: 0;
+      margin-bottom: 7.2px; /* Increased vertical line space */
+    }
+
+    .form-field {
+      display: flex;
+      align-items: flex-end;
+      min-width: 0;
+      flex-shrink: 1;
+    }
+
+    .field-label {
+      white-space: nowrap;
+      font-size: 10.5px; /* Enhanced label legibility */
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.25;
+      padding-bottom: 1.5px;
+      flex-shrink: 0;
+    }
+
+    /* Underlined fillable inputs with enhanced height and text size */
+    .field-input {
+      border: none;
+      border-bottom: 1px dotted #374151;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      color: #111827;
+      font-size: 11.5px; /* Larger typed font */
+      font-weight: 500;
+      padding: 1px 4px;
+      margin: 0 5px 0 3px;
+      height: 21px; /* Increased row height for generous line space */
+      line-height: 21px;
+      min-width: 0;
+      flex-grow: 1;
+      flex-shrink: 1;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    .field-input:focus {
+      border-bottom: 1.5px solid #007337;
+      background-color: #f0fdf4;
+    }
+
+    /* Chevron ribbon header */
+    .green-ribbon {
+      background: #007337;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 800;
+      font-size: 10.5px;
+      letter-spacing: 0.6px;
+      padding: 3px 0;
+      border-radius: 9999px;
+      margin: 3px 0 7px 0;
+      box-shadow: 0 1px 2px rgba(0, 115, 55, 0.2);
+    }
+
+    /* EXACT 1-INCH (25.4mm) SEPARATION ZONE */
+    .office-one-inch-spacer {
+      height: 1in;
+      min-height: 1in;
+      max-height: 1in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+    }
+
+    /* EXACT 2-INCH (50.8mm) SIGNATURE SPACE CLEARANCE */
+    .signature-two-inch-spacer {
+      height: 2in;
+      min-height: 2in;
+      max-height: 2in;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    /* Checkbox styling */
+    .checkbox-custom {
+      accent-color: #007337;
+      width: 13px;
+      height: 13px;
+      cursor: pointer;
+      margin-right: 4px;
+    }
+
+    /* Strict A4 Print Specification */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        overflow: hidden !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .screen-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        display: block !important;
+      }
+
+      .a4-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        min-height: 297mm !important;
+        padding: 3.5mm 12mm 3mm 12mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        margin: 0 !important;
+      }
+
+      .field-input {
+        border-bottom: 1px dotted #374151 !important;
+        background-color: transparent !important;
+      }
+    }
+
+    @media screen and (max-width: 850px) {
+      .screen-wrapper {
+        overflow-x: auto;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-[#007337] selection:text-white">
+
+  <!-- Action Navbar (Hidden on print) -->
+  <header class="no-print w-full max-w-[210mm] mx-auto px-3 pt-3 pb-2">
+    <div class="bg-white/95 backdrop-blur shadow-md border border-slate-300 rounded-xl p-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-[#007337] text-white font-black text-lg flex items-center justify-center shadow">
+          E
+        </div>
+        <div>
+          <h1 class="text-xs font-extrabold text-gray-900 leading-tight">E-Learning & Earning Ltd.</h1>
+          <p class="text-[10px] text-gray-500">Wide Line Space &bull; 1" Office Gap &bull; 2" Signature Space &bull; Single A4</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 flex-wrap">
+        <button type="button" onclick="fillSampleData()" class="px-3 py-1.5 text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-lg transition-all flex items-center gap-1.5 active:scale-95">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Demo Fill
+        </button>
+        <button type="button" onclick="clearForm()" class="px-3 py-1.5 text-xs font-semibold text-gray-700 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg transition-all flex items-center gap-1.5 active:scale-95">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </button>
+        <button type="button" onclick="window.print()" class="px-4 py-1.5 text-xs font-bold text-white bg-[#007337] hover:bg-[#005929] rounded-lg shadow hover:shadow-md transition-all flex items-center gap-1.5 active:scale-95">
+          <i class="fa-solid fa-print"></i> Print A4 (Single Page)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sheet Container -->
+  <div class="screen-wrapper w-full flex justify-center pb-8">
+    <main id="admission-form-sheet" class="a4-page">
+
+      <div class="w-full h-full flex flex-col justify-between">
+        
+        <!-- Main Form Wrapper -->
+        <div>
+          <!-- Header Area -->
+          <div class="w-full flex items-start justify-between gap-2 pb-1 border-b border-gray-200">
+            
+            <!-- Left Logo: Authentic Vector recreation of logo2_2.png -->
+            <div class="w-[96px] shrink-0 flex flex-col items-center min-w-0 pr-1 select-none">
+              <svg viewBox="0 0 450 360" class="w-full h-auto max-h-[92px]" xmlns="http://www.w3.org/2000/svg">
+                <!-- 
+                  Accurate recreation of geometric 'E' glyph in logo2_2.png:
+                  - Top horizontal arm: broad green bar
+                  - Left spine
+                  - Middle horizontal bar
+                  - Distinct bottom-left square cutout
+                  - Central lower vertical post
+                  - Bottom base bar extending to the right
+                -->
+                <g fill="#10a249">
+                  <rect x="130" y="15" width="165" height="42" />
+                  <rect x="130" y="15" width="40" height="205" />
+                  <rect x="170" y="100" width="125" height="42" />
+                  <rect x="208" y="142" width="38" height="78" />
+                  <rect x="130" y="220" width="200" height="45" />
+                </g>
+
+                <!-- Calligraphic brand text: 'e - Learning & Earning Ltd.' in deep navy (#091e6b) -->
+                <text x="225" y="296" text-anchor="middle" font-family="'Times New Roman', serif" font-weight="900" font-style="italic" font-size="39" fill="#091e6b" letter-spacing="-0.3">
+                  <tspan font-family="'Brush Script MT', 'Times New Roman', cursive" font-size="44" font-weight="bold">e</tspan> - Learning &amp; Earning Ltd.
+                </text>
+
+                <!-- Thin Separator Underline -->
+                <line x1="42" y1="309" x2="408" y2="309" stroke="#111827" stroke-width="1.3" opacity="0.85" />
+
+                <!-- Cursive Tagline: 'Excellence in Learning' in emerald green (#159b48) -->
+                <text x="225" y="342" text-anchor="middle" font-family="'Alex Brush', 'Brush Script MT', cursive, serif" font-style="italic" font-size="37" fill="#159b48" letter-spacing="1">
+                  Excellence in Learning
+                </text>
+              </svg>
+            </div>
+
+            <!-- Middle Details & Form Title -->
+            <div class="flex-1 min-w-0 text-center px-1">
+              <h2 class="text-[19px] font-black text-slate-900 tracking-tight leading-none">
+                E-Learning & Earning Ltd.
+              </h2>
+              <p class="text-[9.2px] font-bold text-gray-800 mt-1 leading-tight">
+                Phone : +880 1550 666 800, +880 1550 666 900
+              </p>
+              <p class="text-[8.5px] text-gray-700 mt-0.5 leading-tight">
+                Web : <span class="font-medium text-emerald-950">www.e-laeltd.com</span>, E-mail : <span class="font-medium text-emerald-950">info@e-laeltd.com</span>
+              </p>
+              
+              <h3 class="text-[16px] font-black text-[#007337] tracking-wider uppercase mt-0.5 mb-0.5">
+                ADMISSION FORM
+              </h3>
+
+              <!-- Serial No & Date -->
+              <div class="w-full flex items-center justify-between text-xs font-bold text-gray-800 px-1">
+                <div class="form-field flex-1">
+                  <span class="whitespace-nowrap font-extrabold text-[10.5px]">SL NO :</span>
+                  <input id="input-sl" type="text" value="26732" class="field-input font-black text-[#007337] tracking-wider max-w-[85px] text-xs">
+                </div>
+                <div class="form-field flex-1 justify-end">
+                  <span class="whitespace-nowrap font-extrabold text-[10.5px]">Date :</span>
+                  <input id="input-date" type="text" placeholder="DD / MM / YYYY" class="field-input max-w-[105px] text-center font-semibold text-xs">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Photo Box -->
+            <div class="w-[82px] shrink-0 flex justify-end">
+              <div class="relative group">
+                <label for="photo-file-upload" class="relative w-[82px] h-[95px] border border-gray-600 rounded bg-gray-50 hover:bg-emerald-50/40 flex flex-col items-center justify-center cursor-pointer overflow-hidden shadow-sm transition-all block">
+                  <img id="photo-preview" class="absolute inset-0 w-full h-full object-cover hidden" alt="Candidate Photo">
+                  <div id="photo-placeholder" class="flex flex-col items-center text-center p-1 text-gray-500">
+                    <span class="text-xs font-extrabold uppercase tracking-wider">Photo</span>
+                    <i class="fa-solid fa-camera text-xs mt-1 text-gray-400 group-hover:text-[#007337] no-print"></i>
+                    <span class="text-[7.5px] text-gray-400 no-print mt-0.5 font-medium">Upload</span>
+                  </div>
+                  <input id="photo-file-upload" type="file" accept="image/*" class="hidden" onchange="previewCandidatePhoto(event)">
+                </label>
+                <button type="button" id="photo-remove-btn" onclick="removePhoto(event)" class="no-print hidden absolute -top-1.5 -right-1.5 bg-red-600 text-white rounded-full w-4 h-4 text-[10px] items-center justify-center shadow hover:bg-red-700">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 1: Personal Information -->
+          <div class="green-ribbon">
+            &laquo; Personal Information &raquo;
+          </div>
+
+          <!-- Fields: Personal Information (With expanded line height & spacing) -->
+          <div class="w-full text-gray-900">
+            
+            <!-- Row 1: Candidate Name & Contact -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Name of Candidate :</span>
+                <span class="text-[8px] text-gray-500 font-normal whitespace-nowrap ml-1">(Please use Capital Letter's)</span>
+                <input id="input-name" type="text" class="field-input uppercase font-semibold">
+              </div>
+              <div class="form-field w-48 shrink-0">
+                <span class="field-label">Contact :</span>
+                <input id="input-contact" type="text" class="field-input font-medium">
+              </div>
+            </div>
+
+            <!-- Row 2: Occupation & Designation -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Occupation :</span>
+                <input id="input-occupation" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">Designation :</span>
+                <input id="input-designation" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 3: Father's Name, Occupation & Contact -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Father's Name :</span>
+                <input id="input-father" type="text" class="field-input">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Occupation :</span>
+                <input id="input-f-occ" type="text" class="field-input">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Contact :</span>
+                <input id="input-f-contact" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 4: Mother's Name & Occupation -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Mother's Name :</span>
+                <input id="input-mother" type="text" class="field-input">
+              </div>
+              <div class="form-field w-48 shrink-0">
+                <span class="field-label">Occupation :</span>
+                <input id="input-m-occ" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 5: DOB, Blood Group & Gender -->
+            <div class="form-row">
+              <div class="form-field w-44 shrink-0">
+                <span class="field-label">Date Of Birth :</span>
+                <input id="input-dob" type="text" placeholder="DD / MM / YYYY" class="field-input text-center">
+              </div>
+              <div class="form-field w-32 shrink-0">
+                <span class="field-label">Blood Group :</span>
+                <input id="input-blood" type="text" class="field-input text-center font-semibold">
+              </div>
+              <div class="form-field flex-1 justify-end">
+                <span class="field-label mr-2">Gender :</span>
+                <label class="inline-flex items-center cursor-pointer mr-3.5">
+                  <input type="checkbox" id="gender-male" onclick="toggleGender('Male')" class="checkbox-custom">
+                  <span class="text-[10px] font-semibold text-gray-800">Male</span>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="gender-female" onclick="toggleGender('Female')" class="checkbox-custom">
+                  <span class="text-[10px] font-semibold text-gray-800">Female</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Row 6: Institute -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Name of Institute :</span>
+                <input id="input-institute" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 7: NID & Email -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">NID/Passport No :</span>
+                <input id="input-nid" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">E-mail :</span>
+                <input id="input-email" type="email" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 8: Present Address Line 1 -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Present Address: Villa/Street :</span>
+                <input id="input-pre-addr" type="text" class="field-input">
+              </div>
+              <div class="form-field w-44 shrink-0">
+                <span class="field-label">Post :</span>
+                <input id="input-pre-post" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 9: Present Address Line 2 -->
+            <div class="form-row pl-12">
+              <div class="form-field flex-1">
+                <span class="field-label">Thana :</span>
+                <input id="input-pre-thana" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">District :</span>
+                <input id="input-pre-dist" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 10: Permanent Address Line 1 -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Permanent Address: Villa/Street :</span>
+                <input id="input-per-addr" type="text" class="field-input">
+              </div>
+              <div class="form-field w-44 shrink-0">
+                <span class="field-label">Post :</span>
+                <input id="input-per-post" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 11: Permanent Address Line 2 -->
+            <div class="form-row pl-12">
+              <div class="form-field flex-1">
+                <span class="field-label">Thana :</span>
+                <input id="input-per-thana" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">District :</span>
+                <input id="input-per-dist" type="text" class="field-input">
+              </div>
+            </div>
+
+            <!-- Row 12: Alternative Contact -->
+            <div class="form-row" style="margin-bottom: 0;">
+              <div class="form-field flex-1">
+                <span class="field-label">Alternative Contact Info :</span>
+                <input id="input-alt-contact" type="text" class="field-input">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- EXACT 1-INCH (25.4mm) SEPARATION BUFFER ZONE -->
+          <div class="office-one-inch-spacer">
+            <div class="relative flex items-center justify-center w-full">
+              <div class="w-full border-t border-dashed border-[#007337]/60"></div>
+              <span class="absolute bg-white px-3 text-[8.5px] font-black text-[#007337] uppercase tracking-widest border border-[#007337]/30 rounded-full py-0.5 shadow-sm">
+                &bull; Official Department Use Only &bull;
+              </span>
+            </div>
+          </div>
+
+          <!-- Section 2: For Office Use -->
+          <div class="green-ribbon">
+            &laquo; For Office Use &raquo;
+          </div>
+
+          <!-- Fields: Office Use (With expanded line height & spacing) -->
+          <div class="w-full text-gray-900">
+            
+            <!-- Row 13: Course, Duration, Batch -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">Course Name :</span>
+                <input id="input-course" type="text" class="field-input font-bold text-gray-900">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Duration :</span>
+                <input id="input-duration" type="text" class="field-input font-medium">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Batch No :</span>
+                <input id="input-batch" type="text" class="field-input font-medium">
+              </div>
+            </div>
+
+            <!-- Row 14: Date, Time, Fees & Kit Checklist -->
+            <div class="form-row">
+              <div class="form-field w-32 shrink-0">
+                <span class="field-label">Date :</span>
+                <input id="input-adm-date" type="text" class="field-input">
+              </div>
+              <div class="form-field w-24 shrink-0">
+                <span class="field-label">Time :</span>
+                <input id="input-adm-time" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">Course Fees :</span>
+                <input id="input-fees" type="text" class="field-input font-bold text-[#007337]">
+              </div>
+              
+              <div class="form-field shrink-0 ml-1 flex items-center gap-2.5">
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="item-book" class="checkbox-custom rounded">
+                  <span class="text-[9.8px] font-semibold text-gray-800">Book</span>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="item-pen" class="checkbox-custom rounded">
+                  <span class="text-[9.8px] font-semibold text-gray-800">Pen</span>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="item-khata" class="checkbox-custom rounded">
+                  <span class="text-[9.8px] font-semibold text-gray-800">Khata</span>
+                </label>
+                <label class="inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="item-bag" class="checkbox-custom rounded">
+                  <span class="text-[9.8px] font-semibold text-gray-800">Bag</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Row 15: 1st Payment -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">1st payment Date :</span>
+                <input id="input-pay1-date" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">Money Recipt No :</span>
+                <input id="input-pay1-rcpt" type="text" class="field-input">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Amount :</span>
+                <input id="input-pay1-amt" type="text" class="field-input font-bold">
+              </div>
+            </div>
+
+            <!-- Row 16: 2nd Payment -->
+            <div class="form-row">
+              <div class="form-field flex-1">
+                <span class="field-label">2nd payment Date :</span>
+                <input id="input-pay2-date" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">Money Recipt No :</span>
+                <input id="input-pay2-rcpt" type="text" class="field-input">
+              </div>
+              <div class="form-field w-36 shrink-0">
+                <span class="field-label">Amount :</span>
+                <input id="input-pay2-amt" type="text" class="field-input font-bold">
+              </div>
+            </div>
+
+            <!-- Note Banner -->
+            <div class="w-full text-center py-1">
+              <p class="font-extrabold text-gray-900 text-[10px] tracking-wide">
+                Note: Registration/Course Fee is Non Refundable
+              </p>
+            </div>
+
+            <!-- Row 17: Branch & Coupon -->
+            <div class="form-row" style="margin-bottom: 0;">
+              <div class="form-field flex-1">
+                <span class="field-label">Branch :</span>
+                <input id="input-branch" type="text" class="field-input">
+              </div>
+              <div class="form-field flex-1">
+                <span class="field-label">Coupon :</span>
+                <input id="input-coupon" type="text" class="field-input">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- EXACT 2-INCH (50.8mm) SIGNATURE SPACE CLEARANCE -->
+          <div class="signature-two-inch-spacer">
+            <div class="w-full flex justify-between items-end px-6 sm:px-10 pb-0.5">
+              <div class="text-center w-44">
+                <div class="border-t border-gray-900 pt-1.5 font-bold text-[10.5px] text-gray-900">
+                  Candidate Signature
+                </div>
+              </div>
+              <div class="text-center w-44">
+                <div class="border-t border-gray-900 pt-1.5 font-bold text-[10.5px] text-gray-900">
+                  Authorized Signature
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Official Green Footer Strip -->
+        <footer class="w-full mt-1">
+          <div class="bg-[#007337] text-white text-center py-1 px-3 rounded-sm text-[9.5px] leading-tight font-semibold shadow-sm">
+            <span class="font-black">Head Office:</span> Khaja IT Park, 2<sup>nd</sup> to 6<sup>th</sup> Floor, Kallyanpur Bus Stop, Mirpur Road, Dhaka-1207
+          </div>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Functions -->
+  <script>
+    /* Photo Upload and Preview */
+    function previewCandidatePhoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.getElementById('photo-preview');
+          const placeholder = document.getElementById('photo-placeholder');
+          const removeBtn = document.getElementById('photo-remove-btn');
+          img.src = e.target.result;
+          img.classList.remove('hidden');
+          placeholder.classList.add('hidden');
+          removeBtn.classList.remove('hidden');
+          removeBtn.classList.add('flex');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    /* Photo Remove Handler */
+    function removePhoto(event) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const img = document.getElementById('photo-preview');
+      const placeholder = document.getElementById('photo-placeholder');
+      const removeBtn = document.getElementById('photo-remove-btn');
+      const fileInput = document.getElementById('photo-file-upload');
+      
+      img.src = '';
+      img.classList.add('hidden');
+      placeholder.classList.remove('hidden');
+      removeBtn.classList.add('hidden');
+      removeBtn.classList.remove('flex');
+      fileInput.value = '';
+    }
+
+    /* Exclusive Gender Selection */
+    function toggleGender(selected) {
+      const maleCheck = document.getElementById('gender-male');
+      const femaleCheck = document.getElementById('gender-female');
+      if (selected === 'Male' && maleCheck.checked) {
+        femaleCheck.checked = false;
+      } else if (selected === 'Female' && femaleCheck.checked) {
+        maleCheck.checked = false;
+      }
+    }
+
+    /* Fill Form with Demo Content */
+    function fillSampleData() {
+      document.getElementById('input-sl').value = '26732';
+      document.getElementById('input-date').value = '20 / 09 / 2026';
+      document.getElementById('input-name').value = 'MOHAMMAD RAHMAN';
+      document.getElementById('input-contact').value = '+880 1712 345678';
+      document.getElementById('input-occupation').value = 'Full Stack Trainee';
+      document.getElementById('input-designation').value = 'Student';
+      document.getElementById('input-father').value = 'Abdul Rahman';
+      document.getElementById('input-f-occ').value = 'Businessman';
+      document.getElementById('input-f-contact').value = '+880 1819 001122';
+      document.getElementById('input-mother').value = 'Rokeya Begum';
+      document.getElementById('input-m-occ').value = 'Homemaker';
+      document.getElementById('input-dob').value = '14 / 08 / 2002';
+      document.getElementById('input-blood').value = 'B+';
+      document.getElementById('gender-male').checked = true;
+      document.getElementById('gender-female').checked = false;
+      document.getElementById('input-institute').value = 'Dhaka Polytechnic Institute';
+      document.getElementById('input-nid').value = '19982691234567890';
+      document.getElementById('input-email').value = 'rahman.dev@gmail.com';
+      document.getElementById('input-pre-addr').value = 'House 14, Road 5, Block B';
+      document.getElementById('input-pre-post').value = 'Kallyanpur-1207';
+      document.getElementById('input-pre-thana').value = 'Mirpur';
+      document.getElementById('input-pre-dist').value = 'Dhaka';
+      document.getElementById('input-per-addr').value = 'Village: Charpara, Post Office: Sonapur';
+      document.getElementById('input-per-post').value = 'Sonapur-3800';
+      document.getElementById('input-per-thana').value = 'Begumganj';
+      document.getElementById('input-per-dist').value = 'Noakhali';
+      document.getElementById('input-alt-contact').value = 'Brother: +880 1911 223344';
+
+      // Office Section Demo Data
+      document.getElementById('input-course').value = 'Full-Stack Web & AI Application Development';
+      document.getElementById('input-duration').value = '6 Months';
+      document.getElementById('input-batch').value = 'WD-84';
+      document.getElementById('input-adm-date').value = '20 / 09 / 2026';
+      document.getElementById('input-adm-time').value = '10:30 AM';
+      document.getElementById('input-fees').value = '15,000 BDT';
+      
+      document.getElementById('item-book').checked = true;
+      document.getElementById('item-pen').checked = true;
+      document.getElementById('item-khata').checked = true;
+      document.getElementById('item-bag').checked = true;
+
+      document.getElementById('input-pay1-date').value = '20 / 09 / 2026';
+      document.getElementById('input-pay1-rcpt').value = 'MR-9042';
+      document.getElementById('input-pay1-amt').value = '8,000 BDT';
+
+      document.getElementById('input-pay2-date').value = '20 / 10 / 2026';
+      document.getElementById('input-pay2-rcpt').value = 'MR-9210';
+      document.getElementById('input-pay2-amt').value = '7,000 BDT';
+
+      document.getElementById('input-branch').value = 'Mirpur Main Branch';
+      document.getElementById('input-coupon').value = 'LEARN2026';
+    }
+
+    /* Reset All Inputs */
+    function clearForm() {
+      const inputs = document.querySelectorAll('#admission-form-sheet input[type="text"], #admission-form-sheet input[type="email"]');
+      inputs.forEach(input => {
+        if (input.id === 'input-sl') {
+          input.value = '26732';
+        } else {
+          input.value = '';
+        }
+      });
+
+      const checkboxes = document.querySelectorAll('#admission-form-sheet input[type="checkbox"]');
+      checkboxes.forEach(cb => cb.checked = false);
+
+      removePhoto();
+    }
+  </script>
+</body>
+</html>
